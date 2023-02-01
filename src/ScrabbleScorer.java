@@ -53,7 +53,7 @@ public class ScrabbleScorer {
 
     /**
      * returns if word is a valid scrabble word
-     * @param word
+     * @param word the word that is imputed
      * @return boolean
      */
     public boolean isValidWord(String word) {
@@ -65,7 +65,7 @@ public class ScrabbleScorer {
 
     /**
      * gets the score for valid scrabble word
-     * @param word
+     * @param word the word that is imputed
      * @return score
      */
     public int getWordScore(String word) {
@@ -79,7 +79,7 @@ public class ScrabbleScorer {
 
     /**
      * main method of Scrabble scorer
-     * @param args
+     * @param args command-line arguments, if needed
      *
      */
     public static void main(String[] args){
