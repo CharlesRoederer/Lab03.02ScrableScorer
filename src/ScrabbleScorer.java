@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * public class for scrabble scorer lab
+ * @author 26roederer
+ * @version 01/29/23
+ *
+ */
 public class ScrabbleScorer {
     private String alpha ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     int[] values = {1, 3, 3, 2, 1, 4,
@@ -11,12 +17,21 @@ public class ScrabbleScorer {
             1, 1, 1, 1, 4, 4, 8, 4, 10};
     private ArrayList<ArrayList<String>>dictionary;
 
+    /**
+     * constructor for scrabble scorer lab
+     */
     public ScrabbleScorer(){
         dictionary= new ArrayList<>();
         for (int i=0; i<26; i++)
             dictionary.add(new ArrayList<>());
         buildDictionary();
     }
+
+    /**
+     * dictionary for scrabble scorer lab
+     * @pram null
+     * @return void
+     */
     public void buildDictionary() {
         try{
             Scanner in =new Scanner(new File("SCRABBLE_WORDS (1).txt"));
@@ -35,12 +50,24 @@ public class ScrabbleScorer {
             System.out.println("Error here: "+ e);
         }
     }
+
+    /**
+     * returns if word is a valid scrabble word
+     * @param word
+     * @return boolean
+     */
     public boolean isValidWord(String word) {
 
         if (Collections.binarySearch(dictionary.get(alpha.indexOf(word.substring(0,1))), word)<0)
             return false;
         return true;
     }
+
+    /**
+     * gets the score for valid scrabble word
+     * @param word
+     * @return score
+     */
     public int getWordScore(String word) {
         int score=0;
         for(int i=0; i<word.length(); i++) {
@@ -49,6 +76,12 @@ public class ScrabbleScorer {
         }
         return score;
     }
+
+    /**
+     * main method of Scrabble scorer
+     * @param args
+     *
+     */
     public static void main(String[] args){
         ScrabbleScorer app = new ScrabbleScorer();
         System.out.println("* Welcome to the Scrabble Word Scorer app *");
